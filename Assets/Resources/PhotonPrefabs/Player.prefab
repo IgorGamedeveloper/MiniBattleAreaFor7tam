@@ -937,12 +937,13 @@ GameObject:
   - component: {fileID: 2778813888731682204}
   - component: {fileID: 2778813888731682206}
   - component: {fileID: 2778813888731682207}
+  - component: {fileID: 6769824576730097060}
   - component: {fileID: 2778813888731682205}
   - component: {fileID: 2778813888731682202}
   - component: {fileID: 2778813888731682203}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Tag_Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1076,6 +1077,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &6769824576730097060
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778813888731682195}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!114 &2778813888731682205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,7 +1270,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.11641154, g: 0.2264151, b: 0.13590632, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1402,6 +1419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2778813889415046515}
   - component: {fileID: 5934134651396486182}
+  - component: {fileID: 8614638995704371027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1440,6 +1458,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterEmblemSpriteRenderer: {fileID: 2778813889305217044}
+--- !u!114 &8614638995704371027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778813889415046514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de1df526d9e51447a0940fc684b2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _photonView: {fileID: 2778813888731682204}
+  _checkedMineGameObjects:
+  - {fileID: 2778813888243869036}
+  - {fileID: 2778813889147894224}
+  _checkedMineComponents:
+  - {fileID: 2778813888731682205}
 --- !u!1 &2778813889507750692
 GameObject:
   m_ObjectHideFlags: 0

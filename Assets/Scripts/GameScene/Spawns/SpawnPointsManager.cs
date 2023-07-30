@@ -28,39 +28,20 @@ public class SpawnPointsManager : MonoBehaviour
         _spawnPoints = FindObjectsOfType<SpawnPointItem>(true);
     }
 
-    public SpawnPointItem GetFreeSpawnPoint()
+    public SpawnPointItem GetRandomSpawnPoint()
     {
         FindSpawnPoint();
 
         if (_spawnPoints != null && _spawnPoints.Length > 0)
         {
             int index = Random.Range(0, _spawnPoints.Length);
-
-            for (int i = index; i < _spawnPoints.Length; i++)
-            {
-                if (_spawnPoints[i].IsBusy == false)
-                {
-                    return _spawnPoints[i];
-                }
-                else
-                {
-                    continue;
-                }
-            }
+            return _spawnPoints[index];
         }
         else
         {
             Debug.LogError("Ќе удалось обнаружить точки возрождени€!");
             return null;
         }
-
-        Debug.LogError("Ќе удалось обнаружить свободные точки возрождени€!");
-        return null;
-    }
-
-    public Vector2 GetSpawnPosition()
-    {
-        return GetFreeSpawnPoint().transform.position;
 
     }
 }

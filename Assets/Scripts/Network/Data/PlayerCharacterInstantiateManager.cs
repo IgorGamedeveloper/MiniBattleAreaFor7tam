@@ -32,7 +32,7 @@ public class PlayerCharacterInstantiateManager : MonoBehaviourPunCallbacks
         {
             if (_photonView.IsMine == true)
             {
-                SpawnPointItem spawnPoint = SpawnPointsManager.Instance.GetFreeSpawnPoint();
+                SpawnPointItem spawnPoint = SpawnPointsManager.Instance.GetRandomSpawnPoint();
 
                 if (spawnPoint != null)
                 {
