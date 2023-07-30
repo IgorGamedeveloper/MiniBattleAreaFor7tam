@@ -58,12 +58,19 @@ public class CharacterWeapon : MonoBehaviour
 
     private Vector3 _bulletDirection;
 
+    public delegate void ChangeAmmoAmount(int value);
+    public event ChangeAmmoAmount ammoValueChanged;
+    public event ChangeAmmoAmount ammoReserveValueChanged;
 
 
 
 
 
 
+    private void Start()
+    {
+        UpdateAmmoAmount();
+    }
 
     private void SetCanShot(bool canShot)
     {
@@ -73,6 +80,7 @@ public class CharacterWeapon : MonoBehaviour
     private void ChangeCanShotStatus()
     {
         _canShot = !_canShot;
+        UpdateAmmoAmount();
     }
 
     public void TryShot()
@@ -82,6 +90,7 @@ public class CharacterWeapon : MonoBehaviour
         if (_canShot == true && _ammoLoaded > 0)
         {
             _ammoLoaded--;
+            UpdateLoadedAmmo();
             DoShot(_bulletDirection);
         }
         else if (_ammoLoaded <= 0 && _ammoReserve > 0)
@@ -137,10 +146,28 @@ public class CharacterWeapon : MonoBehaviour
         if (_ammoReserve + ammoAmount > _maxAmmoReserve)
         {
             _ammoReserve = _maxAmmoReserve;
+            UpdateReserveAmmo();
         }
         else
         {
             _ammoReserve += ammoAmount;
+            UpdateReserveAmmo();
         }
+    }
+
+    private void UpdateLoadedAmmo()
+    {
+        ammoValueChanged?.Invoke(_ammoLoaded);
+    }
+
+
+    private void UpdateReserveAmmo()
+    {
+        ammoReserveValueChanged?.Invoke(_ammoReserve);
+    }
+    private void UpdateAmmoAmount()
+    {
+        UpdateLoadedAmmo();
+        UpdateReserveAmmo();
     }
 }

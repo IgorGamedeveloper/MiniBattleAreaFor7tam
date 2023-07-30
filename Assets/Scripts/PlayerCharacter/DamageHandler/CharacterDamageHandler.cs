@@ -58,6 +58,7 @@ public class CharacterDamageHandler : MonoBehaviour
     public void Respawn()
     {
         _health = _maxHealth;
+        transform.position = SpawnPointsManager.Instance.GetSpawnPosition();
         _player.SetActive(true);
     }
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SpawnPointManager : MonoBehaviour
+public class SpawnPointsManager : MonoBehaviour
 {
-    public static SpawnPointManager Instance { get; private set; }
+    public static SpawnPointsManager Instance { get; private set; }
 
     private SpawnPointItem[] _spawnPoints;
 
@@ -56,5 +56,11 @@ public class SpawnPointManager : MonoBehaviour
 
         Debug.LogError("Не удалось обнаружить свободные точки возрождения!");
         return null;
+    }
+
+    public Vector2 GetSpawnPosition()
+    {
+        return GetFreeSpawnPoint().transform.position;
+
     }
 }
